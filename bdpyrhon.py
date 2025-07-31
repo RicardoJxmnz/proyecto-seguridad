@@ -10,8 +10,8 @@ embedding_bytes = embedding.tobytes()
 
 conn = pyodbc.connect(
     "DRIVER={ODBC Driver 18 for SQL Server};"
-    "SERVER=RICARDO;"  # Usa el nombre exacto de tu servidor
-    "DATABASE=SucursalesMVC;"
+    "SERVER=RICARDO;"  
+    "DATABASE=Escuela;"
     "Trusted_Connection=yes;"
     "Encrypt=yes;"
     "TrustServerCertificate=yes;"
@@ -19,7 +19,7 @@ conn = pyodbc.connect(
 
 cursor = conn.cursor()
 
-# Crear tabla si no existe
+
 cursor.execute("""
 IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Embeddings' AND xtype='U')
 CREATE TABLE Embeddings (
